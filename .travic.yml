@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ty0ha/react-repo -f Dockerfile.dev .
+
+script:
+  - docker run ty0ha/react-repo npm run test -- --covarage
